@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Check if argument exists
 if [ -z "$1" ]; then
     echo "Usage: $0 folder/file.java"
@@ -19,3 +18,4 @@ mkdir -p "$folder"
 # Create file
 touch "$full_path"
 
+cd $folder
