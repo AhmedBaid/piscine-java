@@ -6,7 +6,7 @@ public class Palindrome {
         String s1 = new StringBuilder(s).toString();
         String s2 = new StringBuilder(s).reverse().toString();
 
-        return s1.equals(s2);
+        return s1.toLowerCase().equals(s2.toLowerCase());
     }
 
     public static void main(String[] args) {
