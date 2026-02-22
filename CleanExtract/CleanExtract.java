@@ -6,7 +6,6 @@ public class CleanExtract {
 
         String[] segments = s.split("\\|", -1);
         StringBuilder result = new StringBuilder();
-
         for (String segment : segments) {
             int firstDot = segment.indexOf('.');
             int lastDot = segment.lastIndexOf('.');
@@ -36,6 +35,6 @@ public class CleanExtract {
 
     public static void main(String[] args) {
         System.out.println(
-                CleanExtract.extract("The|. quick brown. | what do you ..| .fox .|. Jumps over the lazy dog. ."));
+                CleanExtract.extract("|hello||world|"));
     }
 }
