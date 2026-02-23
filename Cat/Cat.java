@@ -1,19 +1,13 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Cat {
     public static void cat(String[] args) throws IOException {
         for (String file : args) {
-
-            try (FileInputStream fis = new FileInputStream(file)) {
-
-                int chunkSize = 4096;
-                byte[] buffer = new byte[chunkSize];
-                int bytesRead;
-
-                while ((bytesRead = fis.read(buffer)) != -1) {
-                    System.out.print(new String(buffer, 0, bytesRead));
-                }
-            }
+            Path filepath = Paths.get(file);
+            Files.copy(filepath, System.out);
         }
     }
 
