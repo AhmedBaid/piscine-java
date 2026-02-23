@@ -9,7 +9,7 @@ public class Capitalize {
     public static void capitalize(String[] args) throws IOException {
         if (args.length == 2) {
             Path source = Paths.get(args[0]);
-            Path distination = Paths.get(args[0]);
+            Path distination = Paths.get(args[1]);
             String content = Files.readString(source);
             String[] sl = content.split("\\s+");
             List<String> newSl = new ArrayList<>();
