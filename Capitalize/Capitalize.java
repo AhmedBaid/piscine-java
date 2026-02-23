@@ -14,7 +14,9 @@ public class Capitalize {
             String[] sl = content.split("\\s+");
             List<String> newSl = new ArrayList<>();
             for (String ele : sl) {
-                newSl.add(ele.substring(0, 1).toUpperCase() + ele.substring(1, ele.length()));
+                if (ele.length() > 0) {
+                    newSl.add(ele.substring(0, 1).toUpperCase() + ele.substring(1, ele.length()));
+                }
             }
             Files.writeString(distination, String.join(" ", newSl));
         }
