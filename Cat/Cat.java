@@ -8,7 +8,7 @@ public class Cat {
         for (String file : args) {
             Path f = Paths.get(file);
             String content = Files.readString(f);
-            System.out.println(content);
+            System.out.print(content);
         }
     }
 
