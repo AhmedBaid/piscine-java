@@ -34,7 +34,7 @@ public class Star extends CelestialObject {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
         Star obj1 = (Star) obj;
