@@ -1,8 +1,15 @@
 public class CelestialObject {
-    public double x;
-    public double y;
-    public double z;
-    public String name;
+    private double x;
+    private double y;
+    private double z;
+    private String name;
+
+    public CelestialObject(String name, double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.name = name;
+    }
 
     public double getX() {
         return this.x;
