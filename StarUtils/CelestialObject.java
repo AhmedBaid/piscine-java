@@ -25,6 +25,9 @@ public class CelestialObject {
     }
 
     public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
         CelestialObject obj1 = (CelestialObject) obj;
         return Double.compare(this.x, obj1.x) == 0 && Double.compare(this.y, obj1.y) == 0
                 && Double.compare(this.z, obj1.z) == 0 && this.name.equals(obj1.name)
