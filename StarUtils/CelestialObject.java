@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class CelestialObject {
+    private static final double KM_IN_ONE_AU = 150000000;
     private double x;
     private double y;
     private double z;
@@ -36,6 +37,15 @@ public class CelestialObject {
 
     public int hashCode() {
         return Objects.hash(x, y, z, name);
+    }
+
+    public static double getDistanceBetween(CelestialObject obj1, CelestialObject obj2) {
+        return Math
+                .sqrt(Math.pow((obj1.x - obj2.x), 2) + Math.pow((obj1.y - obj2.y), 2) + Math.pow((obj1.z - obj2.z), 2));
+    }
+
+    public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2) {
+        return getDistanceBetween(obj1, obj2) * KM_IN_ONE_AU;
     }
 
     public double getX() {
