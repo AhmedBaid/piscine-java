@@ -34,6 +34,7 @@ public class CelestialObject {
                 && Double.compare(this.z, obj1.z) == 0 && this.name.equals(obj1.name)
                 && obj1 != null;
     }
+
     public int hashCode() {
         return Objects.hash(x, y, z, name);
     }
