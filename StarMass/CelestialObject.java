@@ -6,7 +6,7 @@ public class CelestialObject {
     private double y;
     private double z;
     private String name;
-    private Integer mass;
+    private int mass;
 
     public CelestialObject() {
         this.x = 0.0;
