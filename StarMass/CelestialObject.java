@@ -83,11 +83,11 @@ public class CelestialObject {
         this.name = name;
     }
 
-    public Integer getMass() {
+    public int getMass() {
         return this.mass;
     }
 
-    public void setMass(Integer mass) {
+    public void setMass(int mass) {
         this.mass = mass;
     }
 }
