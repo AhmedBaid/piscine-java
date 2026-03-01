@@ -23,6 +23,9 @@ public class Character {
 
     public void setCurrentHealth(int health) {
         this.currentHealth += health;
+        if (this.currentHealth > this.maxHealth) {
+            this.currentHealth = this.maxHealth;
+        }
     }
 
     public String getName() {
