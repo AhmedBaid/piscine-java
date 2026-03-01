@@ -11,7 +11,7 @@ public class Character {
         return currentHealth;
     }
 
-    public String getmaxName() {
+    public String getName() {
         return name;
     }
 
