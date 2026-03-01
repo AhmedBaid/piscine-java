@@ -7,7 +7,7 @@ public class Sorcerer extends Character implements Healer {
     }
 
     public int getHealCapacity() {
-        return this.getHealCapacity();
+        return this.healCapacity;
     }
 
     public void heal(Character charr) {
