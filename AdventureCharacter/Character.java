@@ -3,21 +3,15 @@ public class Character {
     public int currentHealth;
     public final String name;
 
-    public int getmaxHealth() {
+    public int getMaxHealth() {
         return maxHealth;
     }
 
-    public int getcurrentHealth() {
+    public int getCurrentHealth() {
         return currentHealth;
     }
 
-    public void setcurrentHealth(int i){
-        if (this.currentHealth - i >= 0) {
-            this.currentHealth -= i;
-        } else {
-            this.currentHealth = 0;
-        }
-    }
+    
     public String getName() {
         return name;
     }
@@ -38,8 +32,10 @@ public class Character {
     }
 
     public void takeDamage(int health) {
-        if (this.currentHealth>0){
-            setcurrentHealth(health);
+        if (this.currentHealth - health >= 0) {
+            this.currentHealth -= health;
+        } else {
+            this.currentHealth = 0;
         }
     }
 
