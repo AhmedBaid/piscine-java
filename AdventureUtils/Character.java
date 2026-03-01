@@ -52,7 +52,7 @@ public class Character {
             res.append("------------------------------------------\n" +
                     "Characters currently fighting :" + "\n");
             for (Character charr : allCharacters) {
-                res.append("- " + charr.toString() + "\n");
+                res.append(" - " + charr.toString() + "\n");
             }
             res.append("------------------------------------------" + "\n");
             return res.toString();
