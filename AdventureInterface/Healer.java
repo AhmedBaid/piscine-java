@@ -1,5 +1,5 @@
 public interface Healer {
-    int heal(Character charr);
+    void heal(Character charr);
 
     int getHealCapacity();
 }
