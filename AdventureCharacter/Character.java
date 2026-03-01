@@ -1,17 +1,17 @@
 public class Character {
     public final int maxHealth;
     public int currentHealth;
-    public String name;
+    public final String name;
 
-    public int GetmaxHealth() {
+    public int getmaxHealth() {
         return maxHealth;
     }
 
-    public int GetcurrentHealth() {
+    public int getcurrentHealth() {
         return currentHealth;
     }
 
-    public String GetmaxName() {
+    public String getmaxName() {
         return name;
     }
 
