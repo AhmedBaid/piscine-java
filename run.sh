@@ -1,21 +1,19 @@
 #!/bin/bash
 
-# Check if argument exists
-if [ -z "$1" ]; then
-    echo "Usage: $0 folder/file.java"
+if [ "$#" -eq 0 ]; then
+    echo "Usage: $0 path1.java path2.java ..."
     exit 1
 fi
 
-# Full path
-full_path="$1"
+for full_path in "$@"
+do
+    clean_path="${full_path%,}"
 
-# Extract folder (before last /)
-folder=$(dirname "$full_path")
+    folder=$(dirname "$clean_path")
 
-# Create folder
-mkdir -p "$folder"
+    mkdir -p "$folder"
+    touch "$clean_path"
+done
+    cd "$folder"
 
-# Create file
-touch "$full_path"
-
-cd $folder
+echo "All files created successfully."
