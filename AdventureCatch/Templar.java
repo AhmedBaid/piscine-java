@@ -50,8 +50,8 @@ public class Templar extends Character implements Tank, Healer {
 
     @Override
     public void attack(Character charr) throws DeadCharacterException {
-        if (charr.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(charr);
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
         }
         this.heal(this);
         if (Objects.nonNull(this.getWeapon())) {
