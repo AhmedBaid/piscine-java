@@ -1,39 +1,45 @@
 import java.util.Objects;
 
 public class Monster extends Character {
-    public Monster(String name, int maxHealth, Weapon weapon) {
-        super(name, maxHealth, weapon);
+    public Monster(String name, int ma, Weapon w) {
+        super(name, ma, w);
     }
 
     @Override
-    public String toString() {
-        if (this.getCurrentHealth() <= 0) {
-            return String.format("%s is a monster and is dead. He has the weapon %s", this.getName(),
-                    this.getWeapon().toString());
-        } else {
-            return String.format("%s is a monster with %d HP. He has the weapon %s", this.getName(),
-                    this.getCurrentHealth(), this.getWeapon().toString());
-        }
-    }
-
-    @Override
-    public void takeDamage(int health) throws DeadCharacterException {
-        if (this.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(this);
-        }
-        int reducedDamage = (int) (health * 0.8);
-        this.setCurrentHealth(-reducedDamage);
-    }
-
-    @Override
-    public void attack(Character charchter) throws DeadCharacterException {
+    public void attack(Character chart) throws DeadCharacterException {
         if (this.getCurrentHealth() == 0) {
             throw new DeadCharacterException(this);
         }
         if (Objects.nonNull(this.getWeapon())) {
-            charchter.takeDamage(this.getWeapon().getDamage());
+            chart.takeDamage(this.getWeapon().getDamage());
         } else {
-            charchter.takeDamage(7);
+            chart.takeDamage(7);
         }
     }
+
+    @Override
+    public String toString() {
+        if (this.getCurrentHealth() > 0) {
+            return String.format("%s is a monster with %d HP. He has the weapon %s", this.getName(),
+                    this.getCurrentHealth(), this.getWeapon().toString());
+        } else {
+            return String.format("%s is a monster and is dead. He has the weapon %s", this.getName(),
+                    this.getWeapon().toString());
+
+        }
+
+    }
+
+    @Override
+    public void takeDamage(int nb) throws DeadCharacterException {
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
+        if (this.getCurrentHealth() - (int) (nb * 0.8) >= 0) {
+            this.setCurrentHealth(this.getCurrentHealth() - (int) (nb * 0.8));
+        } else {
+            this.setCurrentHealth(0);
+        }
+    }
+
 }

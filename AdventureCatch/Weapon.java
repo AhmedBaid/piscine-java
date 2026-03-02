@@ -1,18 +1,19 @@
 public class Weapon {
+
     private final String name;
     private final int damage;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getDamage() {
-        return damage;
+        return this.damage;
     }
 
-    public Weapon(String name, int damage) {
+    public Weapon(String name, int da) {
         this.name = name;
-        this.damage = damage;
+        this.damage = da;
     }
 
     @Override
