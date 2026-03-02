@@ -13,8 +13,8 @@ public class Sorcerer extends Character implements Healer {
     }
 
     public void heal(Character charr) throws DeadCharacterException {
-        if (charr.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(charr);
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
         }
         charr.setCurrentHealth(healCapacity);
     }
