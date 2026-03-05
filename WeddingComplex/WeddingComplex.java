@@ -2,43 +2,46 @@ import java.util.*;
 
 public class WeddingComplex {
 
-    public static Map<String, String> createBestCouple(Map<String, List<String>> first, Map<String, List<String>> second) {
+    public static Map<String, String> createBestCouple(Map<String, List<String>> first,
+            Map<String, List<String>> second) {
 
-        Map<String, String> couples = new HashMap<>();
+        Map<String, String> result = new HashMap<>();
+        Map<String, String> reverse = new HashMap<>();
 
-        Map<String, String> engagedTo = new HashMap<>();
-
-        Map<String, Integer> nextProposalIndex = new HashMap<>();
-
-        Queue<String> free = new LinkedList<>(first.keySet());
+        List<String> free = new ArrayList<>(first.keySet());
+        Map<String, Integer> nextChoice = new HashMap<>();
 
         for (String person : first.keySet()) {
-            nextProposalIndex.put(person, 0);
+            nextChoice.put(person, 0);
         }
 
         while (!free.isEmpty()) {
-            String proposer = free.poll();
-            List<String> preferences = first.get(proposer);
+            String p1 = free.remove(0);
 
-            String candidate = preferences.get(nextProposalIndex.get(proposer));
-            nextProposalIndex.put(proposer, nextProposalIndex.get(proposer) + 1);
+            List<String> preferences = first.get(p1);
+            String p2 = preferences.get(nextChoice.get(p1));
+            nextChoice.put(p1, nextChoice.get(p1) + 1);
 
-            if (!engagedTo.containsKey(candidate)) {
-                engagedTo.put(candidate, proposer);
-                couples.put(proposer, candidate);
+            if (!reverse.containsKey(p2)) {
+                result.put(p1, p2);
+                reverse.put(p2, p1);
             } else {
-                String currentPartner = engagedTo.get(candidate);
-                List<String> candidatePrefs = second.get(candidate);
-                if (candidatePrefs.indexOf(proposer) < candidatePrefs.indexOf(currentPartner)) {
-                    couples.remove(currentPartner);
-                    free.add(currentPartner);
-                    engagedTo.put(candidate, proposer);
-                    couples.put(proposer, candidate);
+                String current = reverse.get(p2);
+
+                List<String> prefList = second.get(p2);
+
+                if (prefList.indexOf(p1) < prefList.indexOf(current)) {
+                    result.remove(current);
+                    free.add(current);
+
+                    result.put(p1, p2);
+                    reverse.put(p2, p1);
                 } else {
-                    free.add(proposer);
+                    free.add(p1);
                 }
             }
         }
-        return couples;
+
+        return result;
     }
 }
