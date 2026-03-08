@@ -28,16 +28,11 @@ public class ParseDate {
             return null;
         }
 
-        String normalizedDateString = stringDate
-                .replace("in the morning,", "AM")
-                .replace("in the afternoon,", "PM")
-                .replace("in the evening,", "PM");
-
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .parseCaseInsensitive()
-                .appendPattern("hh 'hours' a mm 'minutes and' ss 'seconds'")
+                .appendPattern("hh 'hours' B, mm 'minutes and' ss 'seconds'")
                 .toFormatter(Locale.ENGLISH);
 
-        return LocalTime.parse(normalizedDateString, formatter);
+        return LocalTime.parse(stringDate, formatter);
     }
 }
