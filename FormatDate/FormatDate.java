@@ -35,5 +35,3 @@ public class FormatDate {
         return String.format("%02d:%02d:%02d", time.getHour(), time.getMinute(), time.getSecond());
     }
 }
-//Le 27 oct. de l'an 2021 à 16h52m et 31s,
-//Le 27 octobre de l'an 2021 à 16h52m et 31s
