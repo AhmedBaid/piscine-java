@@ -1,14 +1,16 @@
-package Singleton;
-
-public class Excalibur {
+class Excalibur {
     private String name = "Sword";
-    private static final Excalibur instance = new Excalibur();
+    private static final Excalibur INSTANCE = new Excalibur();
 
     private Excalibur() {
     }
 
+    private Excalibur(String name) {
+        this.name = name;
+    }
+
     public static Excalibur getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public String getName() {
